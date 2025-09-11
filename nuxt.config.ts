@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'English Quiz',
+      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
     },
   },
 
