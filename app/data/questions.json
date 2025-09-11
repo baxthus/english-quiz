@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "question": "Qual é a capital do Brasil?",
+    "options": ["Brasília", "Rio de Janeiro", "São Paulo", "Salvador"],
+    "answer": "Brasília"
+  },
+  {
+    "id": 2,
+    "question": "Qual oceano banha a costa leste do Brasil?",
+    "options": [
+      "Oceano Atlântico",
+      "Oceano Pacífico",
+      "Oceano Índico",
+      "Oceano Ártico"
+    ],
+    "answer": "Oceano Atlântico"
+  },
+  {
+    "id": 3,
+    "question": "Qual destes países NÃO faz fronteira com o Brasil?",
+    "options": ["Chile", "Bolívia", "Suriname", "Argentina"],
+    "answer": "Chile"
+  },
+  {
+    "id": 4,
+    "question": "Qual é o maior país do mundo em área territorial?",
+    "options": ["Rússia", "Canadá", "China", "Estados Unidos"],
+    "answer": "Rússia"
+  },
+  {
+    "id": 5,
+    "question": "Qual rio tem o maior volume de água do mundo?",
+    "options": ["Rio Amazonas", "Rio Nilo", "Rio Yangtzé", "Rio Mississippi"],
+    "answer": "Rio Amazonas"
+  },
+  {
+    "id": 6,
+    "question": "Qual é a capital da França?",
+    "options": ["Paris", "Lyon", "Marselha", "Nice"],
+    "answer": "Paris"
+  },
+  {
+    "id": 7,
+    "question": "Qual é a montanha mais alta do mundo acima do nível do mar?",
+    "options": ["Monte Everest", "K2", "Kangchenjunga", "Lhotse"],
+    "answer": "Monte Everest"
+  },
+  {
+    "id": 8,
+    "question": "Qual é o país mais populoso do mundo atualmente?",
+    "options": ["Índia", "China", "Estados Unidos", "Indonésia"],
+    "answer": "Índia"
+  },
+  {
+    "id": 9,
+    "question": "Qual é o maior deserto quente do mundo?",
+    "options": ["Saara", "Arábico", "Kalahari", "Gobi"],
+    "answer": "Saara"
+  },
+  {
+    "id": 10,
+    "question": "Qual destas capitais sul-americanas está mais ao sul?",
+    "options": ["Montevidéu", "Buenos Aires", "Santiago", "Lima"],
+    "answer": "Montevidéu"
+  }
+]
