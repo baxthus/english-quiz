@@ -1,67 +1,82 @@
 [
   {
     "id": 1,
-    "question": "Qual é a capital do Brasil?",
-    "options": ["Brasília", "Rio de Janeiro", "São Paulo", "Salvador"],
-    "answer": "Brasília"
+    "question": "Which sentence is written in the passive voice?",
+    "options": [
+      "The committee approved the proposal.",
+      "The proposal was approved by the committee.",
+      "The committee is approving the proposal.",
+      "The committee had been approving the proposal."
+    ],
+    "answer": "The proposal was approved by the committee."
   },
   {
     "id": 2,
-    "question": "Qual oceano banha a costa leste do Brasil?",
-    "options": [
-      "Oceano Atlântico",
-      "Oceano Pacífico",
-      "Oceano Índico",
-      "Oceano Ártico"
-    ],
-    "answer": "Oceano Atlântico"
+    "question": "Complete the sentence: 'If I _____ earlier, I wouldn't have missed the bus.'",
+    "options": ["left", "had left", "have left", "leave"],
+    "answer": "had left"
   },
   {
     "id": 3,
-    "question": "Qual destes países NÃO faz fronteira com o Brasil?",
-    "options": ["Chile", "Bolívia", "Suriname", "Argentina"],
-    "answer": "Chile"
+    "question": "What does the word 'comprehensive' most nearly mean?",
+    "options": ["superficial", "complete", "urgent", "optional"],
+    "answer": "complete"
   },
   {
     "id": 4,
-    "question": "Qual é o maior país do mundo em área territorial?",
-    "options": ["Rússia", "Canadá", "China", "Estados Unidos"],
-    "answer": "Rússia"
+    "question": "Which form correctly completes the sentence: 'She suggested _____ to the cinema.'",
+    "options": ["go", "to go", "going", "went"],
+    "answer": "going"
   },
   {
     "id": 5,
-    "question": "Qual rio tem o maior volume de água do mundo?",
-    "options": ["Rio Amazonas", "Rio Nilo", "Rio Yangtzé", "Rio Mississippi"],
-    "answer": "Rio Amazonas"
+    "question": "Choose the sentence that has the same meaning as: 'Despite the heavy rain, the match continued.'",
+    "options": [
+      "The match was canceled because of heavy rain.",
+      "Although it rained heavily, the match went on.",
+      "Because it rained heavily, the match stopped.",
+      "The match only started after the heavy rain."
+    ],
+    "answer": "Although it rained heavily, the match went on."
   },
   {
     "id": 6,
-    "question": "Qual é a capital da França?",
-    "options": ["Paris", "Lyon", "Marselha", "Nice"],
-    "answer": "Paris"
+    "question": "Which preposition completes the sentence: 'He is responsible _____ the accounts.'",
+    "options": ["for", "to", "with", "of"],
+    "answer": "for"
   },
   {
     "id": 7,
-    "question": "Qual é a montanha mais alta do mundo acima do nível do mar?",
-    "options": ["Monte Everest", "K2", "Kangchenjunga", "Lhotse"],
-    "answer": "Monte Everest"
+    "question": "What does the phrasal verb 'bring up' mean in this sentence: 'She brought up the topic during the meeting.'?",
+    "options": ["raised", "postponed", "canceled", "ignored"],
+    "answer": "raised"
   },
   {
     "id": 8,
-    "question": "Qual é o país mais populoso do mundo atualmente?",
-    "options": ["Índia", "China", "Estados Unidos", "Indonésia"],
-    "answer": "Índia"
+    "question": "Choose the correct relative pronoun: 'The student _____ answered the question was from my class.'",
+    "options": ["that", "who", "whom", "which"],
+    "answer": "who"
   },
   {
     "id": 9,
-    "question": "Qual é o maior deserto quente do mundo?",
-    "options": ["Saara", "Arábico", "Kalahari", "Gobi"],
-    "answer": "Saara"
+    "question": "Which sentence correctly uses the present perfect?",
+    "options": [
+      "I have seen that movie last week.",
+      "I saw that movie.",
+      "I have seen that movie.",
+      "I am seeing that movie."
+    ],
+    "answer": "I have seen that movie."
   },
   {
     "id": 10,
-    "question": "Qual destas capitais sul-americanas está mais ao sul?",
-    "options": ["Montevidéu", "Buenos Aires", "Santiago", "Lima"],
-    "answer": "Montevidéu"
+    "question": "Which verb correctly collocates with 'a mistake'?",
+    "options": [
+      "make a mistake",
+      "do a mistake",
+      "have a mistake",
+      "take a mistake"
+    ],
+    "answer": "make a mistake"
   }
 ]
