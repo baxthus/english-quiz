@@ -33,36 +33,38 @@ onMounted(() => {
     <h1 class="text-4xl font-bold">Quiz</h1>
 
     <div v-if="!isFinished" class="sm:w-96">
-      <div v-if="currentQuestion" class="space-y-4">
-        <p class="text-xl">{{ currentQuestion.question }}</p>
-        <ul class="space-y-2">
-          <li
-            v-for="(option, i) in currentQuestion.options"
-            :key="`${currentIndex}-${i}-${option}`"
+      <transition name="fade-slide" mode="out-in">
+        <div v-if="currentQuestion" :key="currentIndex" class="space-y-4">
+          <p class="text-xl">{{ currentQuestion.question }}</p>
+          <ul class="space-y-2">
+            <li
+              v-for="(option, i) in currentQuestion.options"
+              :key="`${currentIndex}-${i}-${option}`"
+            >
+              <label class="inline-flex items-center gap-2">
+                <input
+                  type="radio"
+                  :value="option"
+                  v-model="userAnswer"
+                  :name="radioGroupName"
+                  class="radio"
+                />
+                <span>{{ option }}</span>
+              </label>
+            </li>
+          </ul>
+          <button
+            @click="nextQuestion"
+            :disabled="!canProceed"
+            class="btn btn-primary"
           >
-            <label class="inline-flex items-center gap-2">
-              <input
-                type="radio"
-                :value="option"
-                v-model="userAnswer"
-                :name="radioGroupName"
-                class="radio"
-              />
-              <span>{{ option }}</span>
-            </label>
-          </li>
-        </ul>
-        <button
-          @click="nextQuestion"
-          :disabled="!canProceed"
-          class="btn btn-primary"
-        >
-          {{ isLastQuestion ? 'Finish' : 'Next' }}
-        </button>
-      </div>
-      <div v-else>
-        <p>No questions available</p>
-      </div>
+            {{ isLastQuestion ? 'Finish' : 'Next' }}
+          </button>
+        </div>
+        <div v-else>
+          <p>No questions available</p>
+        </div>
+      </transition>
     </div>
 
     <div v-else class="space-y-4">
@@ -94,3 +96,20 @@ onMounted(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 300ms ease;
+}
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+.fade-slide-enter-to,
+.fade-slide-leave-from {
+  opacity: 1;
+  transform: translateX(0);
+}
+</style>
