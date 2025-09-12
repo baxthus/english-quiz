@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-col min-h-screen justify-center sm:items-center p-8">
+  <NuxtLayout>
     <NuxtPage />
-  </main>
+  </NuxtLayout>
 </template>

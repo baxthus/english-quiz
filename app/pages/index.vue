@@ -1,3 +1,9 @@
+<script setup lang="ts">
+definePageMeta({
+  layout: 'main',
+});
+</script>
+
 <template>
   <div class="flex flex-col gap-4 items-center">
     <img
@@ -9,5 +15,11 @@
     <button @click="() => navigateTo('/quiz')" class="btn btn-accent">
       Start Quiz
     </button>
+    <p>
+      By
+      <a class="link link-secondary" href="https://baxt.fun" target="_blank"
+        >baxthus</a
+      >
+    </p>
   </div>
 </template>
