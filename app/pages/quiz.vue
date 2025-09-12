@@ -23,9 +23,7 @@ const {
   nextQuestion,
 } = useQuiz(questions);
 
-onMounted(() => {
-  initializeQuiz();
-});
+onMounted(() => initializeQuiz());
 </script>
 
 <template>
@@ -61,9 +59,6 @@ onMounted(() => {
             {{ isLastQuestion ? 'Finish' : 'Next' }}
           </button>
         </div>
-        <div v-else>
-          <p>No questions available</p>
-        </div>
       </transition>
     </div>
 
@@ -79,9 +74,6 @@ onMounted(() => {
           <p class="font-medium">{{ i + 1 }}. {{ r.question.question }}</p>
           <p>Your answer: {{ r.userAnswer }}</p>
           <p v-if="!r.isCorrect">Correct answer: {{ r.question.answer }}</p>
-          <!-- <p :class="r.isCorrect ? 'text-green-600' : 'text-red-600'">
-            {{ r.isCorrect ? 'Correct' : 'Incorrect' }}
-          </p> -->
           <div
             class="badge"
             :class="r.isCorrect ? 'badge-success' : 'badge-error'"
