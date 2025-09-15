@@ -73,6 +73,23 @@ export function useQuiz(questions: Question[]) {
     } else finishQuiz();
   }
 
+  const scorePercentage = computed(() => {
+    if (totalQuestions.value === 0) return 0;
+    return (score.value / totalQuestions.value) * 100;
+  });
+
+  // 100% - Perfect
+  // 90-80% - Excellent
+  // 70-50% - Regular
+  // >50% - Bad
+  const scoreCategory = computed(() => {
+    const percentage = scorePercentage.value;
+    if (percentage === 100) return 'Perfect';
+    if (percentage >= 80) return 'Excellent';
+    if (percentage >= 50) return 'Regular';
+    return 'Bad';
+  });
+
   return {
     // state
     currentIndex,
@@ -86,6 +103,8 @@ export function useQuiz(questions: Question[]) {
     totalQuestions,
     radioGroupName,
     canProceed,
+    scorePercentage,
+    scoreCategory,
     // actions
     initializeQuiz,
     nextQuestion,

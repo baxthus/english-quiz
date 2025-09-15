@@ -11,13 +11,14 @@ const {
   userAnswer,
   results,
   isFinished,
-  score,
   // derived
   currentQuestion,
   isLastQuestion,
   totalQuestions,
   radioGroupName,
   canProceed,
+  scorePercentage,
+  scoreCategory,
   // actions
   initializeQuiz,
   nextQuestion,
@@ -30,7 +31,12 @@ onMounted(() => initializeQuiz());
   <div class="space-y-4">
     <h1 class="text-4xl font-bold">Quiz</h1>
 
-    <div v-if="!isFinished" class="sm:w-96">
+    <div v-if="!isFinished" class="sm:w-96 space-y-2">
+      <progress
+        class="progress progress-secondary w-full"
+        :value="currentIndex"
+        :max="totalQuestions - 1"
+      />
       <transition name="fade-slide" mode="out-in">
         <div v-if="currentQuestion" :key="currentIndex" class="space-y-4">
           <p class="text-xl">{{ currentQuestion.question }}</p>
@@ -64,7 +70,20 @@ onMounted(() => initializeQuiz());
 
     <div v-else class="space-y-4">
       <h2 class="text-2xl font-semibold">Results</h2>
-      <p>Score: {{ score }} / {{ totalQuestions }}</p>
+      <div
+        class="radial-progress"
+        :class="{
+          'text-error': scoreCategory === 'Bad',
+          'text-info': scoreCategory === 'Regular',
+          'text-success': scoreCategory === 'Excellent',
+          'text-accent': scoreCategory === 'Perfect',
+        }"
+        :style="`--value: ${scorePercentage};`"
+        :aria-valuenow="scorePercentage"
+        role="progressbar"
+      >
+        {{ scorePercentage }}%
+      </div>
       <ul class="space-y-4">
         <li
           v-for="(r, i) in results"
