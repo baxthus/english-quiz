@@ -15,11 +15,29 @@ definePageMeta({
     <button @click="() => navigateTo('/quiz')" class="btn btn-accent btn-lg">
       Start Quiz
     </button>
-    <p>
-      By
-      <a class="link link-secondary" href="https://baxt.fun" target="_blank"
-        >baxthus</a
+    <div class="text-center opacity-70">
+      <p>
+        by
+        <a
+          class="link link-secondary"
+          href="https://github.com/baxthus"
+          target="_blank"
+          >baxthus</a
+        >
+        and
+        <a
+          class="link link-secondary"
+          href="https://github.com/guerrei28"
+          target="_blank"
+          >guerrei</a
+        >
+      </p>
+      <a
+        class="link link-secondary"
+        href="https://github.com/baxthus/english-quiz"
+        target="_blank"
+        >source code</a
       >
-    </p>
+    </div>
   </div>
 </template>
