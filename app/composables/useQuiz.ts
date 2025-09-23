@@ -1,5 +1,11 @@
-import type { Question } from '~/types/questions';
+import type { Cartoons, Question } from '~/types/cartoons';
 import type { Results } from '~/types/results';
+
+export type EnhancedQuestion = Question & {
+  cartoonImage: string;
+};
+
+export type ScoreCategory = 'Perfect' | 'Excellent' | 'Regular' | 'Bad';
 
 function shuffle<T>(arr: T[]): T[] {
   const a = arr.slice();
@@ -12,23 +18,31 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-export function useQuiz(questions: Question[]) {
+export function useQuiz(cartoons: Cartoons) {
   const currentIndex = ref(0);
   const userAnswer = ref<string | null>(null);
   const results = ref<Results>([]);
   const isFinished = ref(false);
-
   const score = ref(0);
 
-  const shuffledQuestions = ref<Question[]>([]);
+  const shuffledQuestions = ref<EnhancedQuestion[]>([]);
 
-  function initializeQuiz() {
-    const withShuffledOptions = questions.map((q) => ({
-      ...q,
-      options: shuffle(q.options),
-    }));
-    shuffledQuestions.value = shuffle(withShuffledOptions);
+  function initializeQuiz(): void {
+    const shuffledCartoons = shuffle([...cartoons]);
+    const allQuestions: EnhancedQuestion[] = [];
 
+    for (const cartoon of shuffledCartoons) {
+      for (const question of cartoon.questions) {
+        const enhancedQuestion: EnhancedQuestion = {
+          ...question,
+          options: shuffle([...question.options]),
+          cartoonImage: cartoon.image,
+        };
+        allQuestions.push(enhancedQuestion);
+      }
+    }
+
+    shuffledQuestions.value = shuffle(allQuestions);
     currentIndex.value = 0;
     userAnswer.value = null;
     results.value = [];
@@ -36,53 +50,66 @@ export function useQuiz(questions: Question[]) {
     score.value = 0;
   }
 
-  const currentQuestion = computed(
+  const currentQuestion = computed<EnhancedQuestion | null>(
     () => shuffledQuestions.value[currentIndex.value] ?? null,
   );
 
-  const isLastQuestion = computed(() => {
+  const currentCartoonImage = computed<string | null>(
+    () => shuffledQuestions.value[currentIndex.value]?.cartoonImage ?? null,
+  );
+
+  const isLastQuestion = computed<boolean>(() => {
     if (!currentQuestion.value) return false;
     return currentIndex.value === shuffledQuestions.value.length - 1;
   });
 
-  const totalQuestions = computed(() => shuffledQuestions.value.length);
+  const totalQuestions = computed<number>(() => shuffledQuestions.value.length);
 
-  const radioGroupName = computed(() => `q-${currentIndex.value}`);
+  const radioGroupName = computed<string>(() => `q-${currentIndex.value}`);
 
-  const canProceed = computed(() => !!userAnswer.value);
+  const canProceed = computed<boolean>(() => !!userAnswer.value);
 
-  function finishQuiz() {
+  function finishQuiz(): void {
     isFinished.value = true;
   }
 
-  function nextQuestion() {
-    if (!currentQuestion.value || !userAnswer.value) return;
+  function nextQuestion(): void {
+    const question = currentQuestion.value;
+    const answer = userAnswer.value;
 
-    const correct = currentQuestion.value.answer === userAnswer.value;
+    if (!question || !answer) return;
+
+    const isCorrect = question.answer === answer;
+
     results.value.push({
-      question: currentQuestion.value,
-      userAnswer: userAnswer.value,
-      isCorrect: correct,
+      question: {
+        id: question.id,
+        question: question.question,
+        options: question.options,
+        answer: question.answer,
+      },
+      userAnswer: answer,
+      isCorrect,
     });
 
-    if (correct) score.value += 1;
+    if (isCorrect) {
+      score.value += 1;
+    }
 
     if (currentIndex.value < shuffledQuestions.value.length - 1) {
       currentIndex.value += 1;
       userAnswer.value = null;
-    } else finishQuiz();
+    } else {
+      finishQuiz();
+    }
   }
 
-  const scorePercentage = computed(() => {
+  const scorePercentage = computed<number>(() => {
     if (totalQuestions.value === 0) return 0;
-    return (score.value / totalQuestions.value) * 100;
+    return Math.round((score.value / totalQuestions.value) * 100);
   });
 
-  // 100% - Perfect
-  // 90-80% - Excellent
-  // 70-50% - Regular
-  // >50% - Bad
-  const scoreCategory = computed(() => {
+  const scoreCategory = computed<ScoreCategory>(() => {
     const percentage = scorePercentage.value;
     if (percentage === 100) return 'Perfect';
     if (percentage >= 80) return 'Excellent';
@@ -99,6 +126,7 @@ export function useQuiz(questions: Question[]) {
     score,
     // derived
     currentQuestion,
+    currentCartoonImage,
     isLastQuestion,
     totalQuestions,
     radioGroupName,

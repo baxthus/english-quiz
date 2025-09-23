@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import rawQuestions from '~/data/questions.json';
-import { questionsSchema } from '~/types/questions';
+import rawCartoons from '~/data/questions.json';
+import { cartoonsSchema } from '~/types/cartoons';
 import { useQuiz } from '~/composables/useQuiz';
 
-const questions = questionsSchema.parse(rawQuestions);
+const cartoons = cartoonsSchema.parse(rawCartoons);
 
 const {
   // state
@@ -13,6 +13,7 @@ const {
   isFinished,
   // derived
   currentQuestion,
+  currentCartoonImage,
   isLastQuestion,
   totalQuestions,
   radioGroupName,
@@ -22,7 +23,7 @@ const {
   // actions
   initializeQuiz,
   nextQuestion,
-} = useQuiz(questions);
+} = useQuiz(cartoons);
 
 onMounted(() => initializeQuiz());
 </script>
@@ -39,6 +40,13 @@ onMounted(() => initializeQuiz());
       />
       <transition name="fade-slide" mode="out-in">
         <div v-if="currentQuestion" :key="currentIndex" class="space-y-4">
+          <div v-if="currentCartoonImage" class="flex justify-center">
+            <img
+              :src="currentCartoonImage"
+              :alt="`Cartoon for question ${currentQuestion.id}`"
+              class="w-48 h-48 object-cover rounded-lg shadow-md"
+            />
+          </div>
           <p class="text-xl">{{ currentQuestion.question }}</p>
           <ul class="space-y-2">
             <li
