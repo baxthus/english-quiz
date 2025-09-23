@@ -1,8 +1,9 @@
-import type { Cartoons, Question } from '~/types/cartoons';
-import type { Results } from '~/types/results';
+import type { Cartoons, Question, Cartoon } from '~/types/cartoons';
+import type { Results, QuestionResult, CartoonResult } from '~/types/results';
 
 export type EnhancedQuestion = Question & {
   cartoonImage: string;
+  cartoonId: number;
 };
 
 export type ScoreCategory = 'Perfect' | 'Excellent' | 'Regular' | 'Bad';
@@ -37,6 +38,7 @@ export function useQuiz(cartoons: Cartoons) {
           ...question,
           options: shuffle([...question.options]),
           cartoonImage: cartoon.image,
+          cartoonId: cartoon.id,
         };
         allQuestions.push(enhancedQuestion);
       }
@@ -90,6 +92,7 @@ export function useQuiz(cartoons: Cartoons) {
       },
       userAnswer: answer,
       isCorrect,
+      cartoonId: question.cartoonId,
     });
 
     if (isCorrect) {
@@ -117,6 +120,32 @@ export function useQuiz(cartoons: Cartoons) {
     return 'Bad';
   });
 
+  const resultsByCartoon = computed<CartoonResult[]>(() => {
+    const cartoonMap = new Map<number, CartoonResult>();
+
+    for (const result of results.value) {
+      const cartoonId = result.cartoonId;
+
+      if (!cartoonMap.has(cartoonId)) {
+        // Find the cartoon data
+        const cartoon = cartoons.find((c) => c.id === cartoonId);
+        if (cartoon) {
+          cartoonMap.set(cartoonId, {
+            cartoon,
+            questionResults: [],
+          });
+        }
+      }
+
+      const cartoonResult = cartoonMap.get(cartoonId);
+      if (cartoonResult) {
+        cartoonResult.questionResults.push(result);
+      }
+    }
+
+    return Array.from(cartoonMap.values());
+  });
+
   return {
     // state
     currentIndex,
@@ -133,6 +162,7 @@ export function useQuiz(cartoons: Cartoons) {
     canProceed,
     scorePercentage,
     scoreCategory,
+    resultsByCartoon,
     // actions
     initializeQuiz,
     nextQuestion,

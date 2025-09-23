@@ -20,6 +20,7 @@ const {
   canProceed,
   scorePercentage,
   scoreCategory,
+  resultsByCartoon,
   // actions
   initializeQuiz,
   nextQuestion,
@@ -92,23 +93,60 @@ onMounted(() => initializeQuiz());
       >
         {{ scorePercentage }}%
       </div>
-      <ul class="space-y-4">
-        <li
-          v-for="(r, i) in results"
-          :key="i"
-          class="border p-4 rounded space-y-2"
+      <div class="space-y-6">
+        <div
+          v-for="cartoonResult in resultsByCartoon"
+          :key="cartoonResult.cartoon.id"
+          class="bg-base-200 rounded-lg p-6 space-y-4"
         >
-          <p class="font-medium">{{ i + 1 }}. {{ r.question.question }}</p>
-          <p>Your answer: {{ r.userAnswer }}</p>
-          <p v-if="!r.isCorrect">Correct answer: {{ r.question.answer }}</p>
-          <div
-            class="badge"
-            :class="r.isCorrect ? 'badge-success' : 'badge-error'"
-          >
-            {{ r.isCorrect ? 'Correct' : 'Incorrect' }}
+          <div class="flex items-center gap-4">
+            <img
+              :src="cartoonResult.cartoon.image"
+              :alt="`Cartoon ${cartoonResult.cartoon.id}`"
+              class="w-16 h-16 object-cover rounded-lg shadow-sm"
+            />
+            <div>
+              <h3 class="text-lg font-semibold">
+                Cartoon {{ cartoonResult.cartoon.id }}
+              </h3>
+              <p class="text-sm text-gray-600">
+                {{
+                  cartoonResult.questionResults.filter((r) => r.isCorrect)
+                    .length
+                }}
+                / {{ cartoonResult.questionResults.length }} correct
+              </p>
+            </div>
           </div>
-        </li>
-      </ul>
+
+          <div class="space-y-3">
+            <div
+              v-for="result in cartoonResult.questionResults"
+              :key="result.question.id"
+              class="bg-base-300 p-4 rounded space-y-2"
+            >
+              <p class="font-medium">{{ result.question.question }}</p>
+              <p class="text-sm">
+                <span class="text-gray-600">Your answer:</span>
+                <span
+                  :class="result.isCorrect ? 'text-green-600' : 'text-red-600'"
+                  >{{ result.userAnswer }}</span
+                >
+              </p>
+              <p v-if="!result.isCorrect" class="text-sm">
+                <span class="text-gray-600">Correct answer:</span>
+                <span class="text-green-600">{{ result.question.answer }}</span>
+              </p>
+              <div
+                class="badge"
+                :class="result.isCorrect ? 'badge-success' : 'badge-error'"
+              >
+                {{ result.isCorrect ? 'Correct' : 'Incorrect' }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div>
         <button @click="initializeQuiz" class="btn btn-accent">Restart</button>
       </div>

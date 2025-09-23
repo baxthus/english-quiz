@@ -10,6 +10,7 @@ export type QuestionResult = {
   };
   userAnswer: string;
   isCorrect: boolean;
+  cartoonId: number;
 };
 
 // Result for a single cartoon (which has 2 questions)
