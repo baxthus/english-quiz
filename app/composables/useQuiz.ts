@@ -127,7 +127,6 @@ export function useQuiz(cartoons: Cartoons) {
       const cartoonId = result.cartoonId;
 
       if (!cartoonMap.has(cartoonId)) {
-        // Find the cartoon data
         const cartoon = cartoons.find((c) => c.id === cartoonId);
         if (cartoon) {
           cartoonMap.set(cartoonId, {
@@ -143,7 +142,9 @@ export function useQuiz(cartoons: Cartoons) {
       }
     }
 
-    return Array.from(cartoonMap.values());
+    return Array.from(cartoonMap.values()).sort(
+      (a, b) => a.cartoon.id - b.cartoon.id,
+    );
   });
 
   return {
