@@ -9,7 +9,6 @@ const {
   // state
   currentIndex,
   userAnswer,
-  results,
   isFinished,
   // derived
   currentQuestion,
@@ -77,21 +76,22 @@ onMounted(() => initializeQuiz());
       </transition>
     </div>
 
-    <div v-else class="space-y-4">
+    <div v-else class="flex flex-col items-center gap-y-4">
       <h2 class="text-2xl font-semibold">Results</h2>
       <div
-        class="radial-progress"
+        class="radial-progress text-2xl font-bold"
         :class="{
           'text-error': scoreCategory === 'Bad',
           'text-info': scoreCategory === 'Regular',
           'text-success': scoreCategory === 'Excellent',
           'text-accent': scoreCategory === 'Perfect',
         }"
-        :style="`--value: ${scorePercentage};`"
+        :style="`--value: ${scorePercentage}; --size: 12rem;`"
         :aria-valuenow="scorePercentage"
         role="progressbar"
       >
-        {{ scorePercentage }}%
+        <p>{{ scorePercentage }}%</p>
+        <p>{{ scoreCategory }}</p>
       </div>
       <div class="space-y-6">
         <div
@@ -126,30 +126,30 @@ onMounted(() => initializeQuiz());
               class="bg-base-300 p-4 rounded space-y-2"
             >
               <p class="font-medium">{{ result.question.question }}</p>
-              <p class="text-sm">
-                <span class="text-gray-600">Your answer:</span>
-                <span
-                  :class="result.isCorrect ? 'text-green-600' : 'text-red-600'"
-                  >{{ result.userAnswer }}</span
-                >
-              </p>
-              <p v-if="!result.isCorrect" class="text-sm">
-                <span class="text-gray-600">Correct answer:</span>
-                <span class="text-green-600">{{ result.question.answer }}</span>
-              </p>
               <div
                 class="badge"
                 :class="result.isCorrect ? 'badge-success' : 'badge-error'"
               >
                 {{ result.isCorrect ? 'Correct' : 'Incorrect' }}
               </div>
+              <p class="text-sm">
+                <span class="text-gray-600">Your answer: </span>
+                <span
+                  :class="result.isCorrect ? 'text-green-600' : 'text-red-600'"
+                  >{{ result.userAnswer }}</span
+                >
+              </p>
+              <p v-if="!result.isCorrect" class="text-sm">
+                <span class="text-gray-600">Correct answer: </span>
+                <span class="text-green-600">{{ result.question.answer }}</span>
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <div>
-        <button @click="initializeQuiz" class="btn btn-accent">Restart</button>
-      </div>
+      <button @click="initializeQuiz" class="btn btn-accent btn-wide">
+        Restart
+      </button>
     </div>
   </div>
 </template>
