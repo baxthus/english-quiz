@@ -19,8 +19,8 @@
         "question": "When Mafalda ends with “One and a half and already a candidate for tear gas,” what is she implying about Guille?",
         "options": [
           "He is too young to understand work",
-          "He is already showing a rebellious or questioning spirit",
           "He is ready to get a job soon",
+          "He is already showing a rebellious or questioning spirit",
           "He simply enjoys bothering his sister"
         ],
         "answer": "He is already showing a rebellious or questioning spirit"
@@ -35,8 +35,8 @@
         "id": 3,
         "question": "How does Mafalda's reaction challenge the idea of an “ideal life”?",
         "options": [
-          "By showing that a perfect plan can still feel empty",
           "By suggesting that happiness comes from following lists",
+          "By showing that a perfect plan can still feel empty",
           "By proving that children don't understand adult goals",
           "By encouraging people to plan every single step of life"
         ],
@@ -63,10 +63,10 @@
         "id": 5,
         "question": "What does Mafalda's mother mean by saying she is “the World Bank and the International Monetary Fund”?",
         "options": [
-          "She controls the household rules like financial institutions control countries",
+          "She means she has more money than Mafalda",
           "She is simply joking with Mafalda",
           "She wants Mafalda to study economics",
-          "She means she has more money than Mafalda"
+          "She controls the household rules like financial institutions control countries"
         ],
         "answer": "She controls the household rules like financial institutions control countries"
       },
@@ -74,9 +74,9 @@
         "id": 6,
         "question": "Why does Mafalda think, “That was clever”?",
         "options": [
-          "Because her mother used humor to end the argument",
-          "Because her mother gave her permission to disobey",
           "Because she realized her mother doesn’t understand politics",
+          "Because her mother gave her permission to disobey",
+          "Because her mother used humor to end the argument",
           "Because her mother actually picked up the sweater"
         ],
         "answer": "Because her mother used humor to end the argument"
@@ -96,7 +96,7 @@
           "“Her name is Sarah, and she's really nice”",
           "“I already like her a lot”"
         ],
-        "answer": "“Her name is Sarah, and she's really nice”"
+        "answer": "“Who cares? Not me!”"
       },
       {
         "id": 8,
@@ -119,10 +119,10 @@
         "id": 9,
         "question": "If Snoopy could answer Linus, what would he probably say?",
         "options": [
-          "“Make me!”",
+          "“I only obey Charlie Brown”",
           "“Okay, here you go”",
           "“Blankets are my new chew toy”",
-          "“I only obey Charlie Brown”"
+          "“Make me!”"
         ],
         "answer": "“Make me!”"
       },
