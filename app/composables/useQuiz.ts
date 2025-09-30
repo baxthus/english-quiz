@@ -71,7 +71,7 @@ export const useQuiz = (cartoons: Cartoons) => {
     const p = scorePercentage.value;
     return p === 100
       ? 'Perfect'
-      : p >= 80
+      : p >= 70
         ? 'Excellent'
         : p >= 50
           ? 'Regular'
