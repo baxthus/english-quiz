@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import rawCartoons from '~/data/questions.json';
+import rawCartoons from '~/data/cartoons.json';
 import { cartoonsSchema } from '~/types/cartoons';
 import { useQuiz } from '~/composables/useQuiz';
 
@@ -44,7 +44,7 @@ onMounted(() => initializeQuiz());
             <img
               :src="currentCartoonImage"
               :alt="`Cartoon for question ${currentQuestion.id}`"
-              class="w-48 h-48 object-cover rounded-lg shadow-md"
+              class="object-cover rounded-lg shadow-md"
             />
           </div>
           <p class="text-xl">{{ currentQuestion.question }}</p>

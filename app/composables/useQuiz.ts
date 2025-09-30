@@ -1,5 +1,9 @@
-import type { Cartoons, Question, Cartoon } from '~/types/cartoons';
-import type { Results, QuestionResult, CartoonResult } from '~/types/results';
+import type {
+  CartoonResult,
+  Cartoons,
+  Question,
+  Results,
+} from '~/types/cartoons';
 
 export type EnhancedQuestion = Question & {
   cartoonImage: string;

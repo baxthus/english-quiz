@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "image": "/cartoons/mafalda1.jpeg",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What deeper issue is suggested when Mafalda says, “Because it's how this world works, Guille!”?",
+        "options": [
+          "The natural curiosity of children about life",
+          "The criticism of a society where work dominates life",
+          "The importance of respecting adults",
+          "The idea that children should not ask too many questions"
+        ],
+        "answer": "The criticism of a society where work dominates life"
+      },
+      {
+        "id": 2,
+        "question": "When Mafalda ends with “One and a half and already a candidate for tear gas,” what is she implying about Guille?",
+        "options": [
+          "He is too young to understand work",
+          "He is already showing a rebellious or questioning spirit",
+          "He is ready to get a job soon",
+          "He simply enjoys bothering his sister"
+        ],
+        "answer": "He is already showing a rebellious or questioning spirit"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "image": "/cartoons/mafalda2.jpeg",
+    "questions": [
+      {
+        "id": 3,
+        "question": "How does Mafalda's reaction challenge the idea of an “ideal life”?",
+        "options": [
+          "By showing that a perfect plan can still feel empty",
+          "By suggesting that happiness comes from following lists",
+          "By proving that children don't understand adult goals",
+          "By encouraging people to plan every single step of life"
+        ],
+        "answer": "By showing that a perfect plan can still feel empty"
+      },
+      {
+        "id": 4,
+        "question": "If Mafalda thinks the life shown is “a list,” what quality does she believe is missing?",
+        "options": [
+          "Spontaneity and true experiences",
+          "More responsibilities and duties",
+          "Better organization and structure",
+          "A longer list with more activities"
+        ],
+        "answer": "Spontaneity and true experiences"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "image": "/cartoons/mafalda3.jpeg",
+    "questions": [
+      {
+        "id": 5,
+        "question": "What does Mafalda's mother mean by saying she is “the World Bank and the International Monetary Fund”?",
+        "options": [
+          "She controls the household rules like financial institutions control countries",
+          "She is simply joking with Mafalda",
+          "She wants Mafalda to study economics",
+          "She means she has more money than Mafalda"
+        ],
+        "answer": "She controls the household rules like financial institutions control countries"
+      },
+      {
+        "id": 6,
+        "question": "Why does Mafalda think, “That was clever”?",
+        "options": [
+          "Because her mother used humor to end the argument",
+          "Because her mother gave her permission to disobey",
+          "Because she realized her mother doesn’t understand politics",
+          "Because her mother actually picked up the sweater"
+        ],
+        "answer": "Because her mother used humor to end the argument"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "image": "/cartoons/calvin1.jpeg",
+    "questions": [
+      {
+        "id": 7,
+        "question": "If Calvin were writing a diary about the new girl, what would he most likely write?",
+        "options": [
+          "“She's amazing, I want to be her friend!”",
+          "“Who cares? Not me!”",
+          "“Her name is Sarah, and she's really nice”",
+          "“I already like her a lot”"
+        ],
+        "answer": "“Her name is Sarah, and she's really nice”"
+      },
+      {
+        "id": 8,
+        "question": "Why does Hobbes probably think Calvin does like the new girl?",
+        "options": [
+          "Because Calvin is shouting “NO!” too strongly",
+          "Because Calvin is smiling when he talks about her",
+          "Because Calvin wrote her name on his notebook",
+          "Because Calvin said she’s the nicest person ever"
+        ],
+        "answer": "Because Calvin is shouting “NO!” too strongly"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "image": "/cartoons/snoopy1.jpeg",
+    "questions": [
+      {
+        "id": 9,
+        "question": "If Snoopy could answer Linus, what would he probably say?",
+        "options": [
+          "“Make me!”",
+          "“Okay, here you go”",
+          "“Blankets are my new chew toy”",
+          "“I only obey Charlie Brown”"
+        ],
+        "answer": "“Make me!”"
+      },
+      {
+        "id": 10,
+        "question": "What lesson does this comic secretly teach about words?",
+        "options": [
+          "Sometimes dogs are smarter than humans",
+          "Timing and tone can change meaning",
+          "Blankets are the most powerful objects",
+          "Snoopy always wins in the end"
+        ],
+        "answer": "Timing and tone can change meaning"
+      }
+    ]
+  }
+]

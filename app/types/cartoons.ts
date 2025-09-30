@@ -2,7 +2,7 @@ import z from 'zod';
 
 export const cartoonSchema = z.object({
   id: z.number(),
-  image: z.url(),
+  image: z.string(),
   questions: z
     .array(
       z
@@ -25,5 +25,23 @@ export type Cartoon = z.infer<typeof cartoonSchema>;
 export const cartoonsSchema = z.array(cartoonSchema).length(5);
 export type Cartoons = z.infer<typeof cartoonsSchema>;
 
-// Helper type to extract individual question structure
 export type Question = Cartoon['questions'][0];
+
+export type QuestionResult = {
+  question: {
+    id: number;
+    question: string;
+    options: string[];
+    answer: string;
+  };
+  userAnswer: string;
+  isCorrect: boolean;
+  cartoonId: number;
+};
+
+export type CartoonResult = {
+  cartoon: Cartoon;
+  questionResults: QuestionResult[];
+};
+
+export type Results = Array<QuestionResult>;
